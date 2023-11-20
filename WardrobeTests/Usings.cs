@@ -1,0 +1,13 @@
+﻿global using Moq;
+global using WardrobeAPI.Repositories;
+global using WardrobeAPI.Controllers;
+global using System.Threading.Tasks;
+global using Xunit;
+global using System.Collections.Generic;
+global using WardrobeAPI.Entities;
+global using Microsoft.AspNetCore.Mvc;
+global using WardrobeAPI.DTOs;
+global using System;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.OpenApi.Any;
+global using WardrobeAPI.Database;

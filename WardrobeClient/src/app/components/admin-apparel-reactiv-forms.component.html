@@ -1,0 +1,53 @@
+<h1>Apparel Administration</h1>
+
+<form [formGroup]="form" (ngSubmit)="save()">
+
+    <div class="formControl">
+<label>Titel</label>
+<input type="text" formControlName="title">
+<span class="error"
+ *ngIf="form.get('title')?.touched && !form.get('title')?.valid">Udfyld!</span>
+    </div>
+    
+    <div class="formControl">
+<label>Beskrivelse</label>
+<textarea formControlName="description"></textarea>
+<span class="error"
+ *ngIf="form.get('description')?.touched && !form.get('description')?.valid">Udfyld!</span>
+    </div>
+
+            <div class="formControl">
+        <label>Farve</label>
+        <input type="text" formControlName="color">
+        <span class="error" *ngIf="form.get('color')?.touched && !form.get('color')?.valid">Udfyld!</span>
+    </div>
+
+    <button [disabled]="!form.valid || !form.touched">Gem</button>
+    <button type="button" (click)="cancel()">Annuller</button>
+</form>
+
+    <span 
+        *ngIf="message != ''">{{ message }}
+    </span>
+
+    <table>
+    <tr>
+        <th>Handling</th>
+        <th>Id</th>
+        <th>Titel</th>
+        <th>Beskrivelse</th>
+        <th>Farve</th>
+    </tr>
+
+    <tr *ngFor="let apparel of apparels">
+        <td>
+        <button (click)="edit(apparel)">Ret</button>
+        <button (click)="delete(apparel)">Slet</button>
+    </td>
+
+    <td>{{ apparel.id }}</td>
+    <td>{{ apparel.title }}</td>
+    <td>{{ apparel.description }}</td>
+    <td>{{ apparel.color }}</td>
+</tr>
+</table>
